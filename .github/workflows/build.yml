@@ -40,6 +40,7 @@ jobs:
   
   push:
     runs-on: ubuntu-latest
+    environment: DEV
 
     needs: build
 
@@ -53,8 +54,8 @@ jobs:
     - name: Login to DockerHub
       uses: docker/login-action@v3
       with:
-        username: ${{ secrets.DOCKERHUB_USERNAME }}
-        password: ${{ secrets.DOCKERHUB_TOKEN }}
+        username: ${{ env.DOCKER_USERNAME }}
+        password: ${{ secrets.DOCKER_PASSWORD }}
 
     - name: Build and Push action
       uses: docker/build-push-action@v6
@@ -62,10 +63,11 @@ jobs:
         context: .
         file: ./Dockerfile
         push: true
-        tags: ${{ secrets.DOCKERHUB_USERNAME }}/go-web-app:${{github.run_id}}
+        tags: ${{ env.DOCKER_USERNAME }}/go-web-app:${{ github.run_id }}
 
   update-newtag-in-helm-chart:
     runs-on: ubuntu-latest
+    environment: DEV
 
     needs: push
 
@@ -77,12 +79,12 @@ jobs:
 
     - name: Update tag in Helm chart
       run: |
-        sed -i 's/tag: .*/tag: "${{github.run_id}}"/' helm/go-web-app-chart/values.yaml
+        sed -i 's/tag: .*/tag: "${{ github.run_id }}"/' helm/go-web-app-chart/values.yaml
 
-        - name: Commit and push changes
-          run: |
-           git config --global user.email "kumarnaveenssnp@gmail.com"
-           git config --global user.name "Naveenkumar511"
-           git add helm/go-web-app-chart/values.yaml
-           git commit -m "Update tag in Helm chart"
-           git push
+    - name: Commit and push changes
+      run: |
+        git config --global user.email "kumarnaveenssnp@gmail.com"
+        git config --global user.name "Naveenkumar511"
+        git add helm/go-web-app-chart/values.yaml
+        git commit -m "Update tag in Helm chart"
+        git push
