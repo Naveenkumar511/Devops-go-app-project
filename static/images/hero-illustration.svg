@@ -1,0 +1,26 @@
+<svg viewBox="0 0 720 560" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="heroTitle">
+  <defs>
+    <linearGradient id="heroGradient" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#4f7dff" />
+      <stop offset="100%" stop-color="#2ec7c8" />
+    </linearGradient>
+    <linearGradient id="heroGlow" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#4f7dff" stop-opacity="0.45" />
+      <stop offset="100%" stop-color="#2ec7c8" stop-opacity="0.1" />
+    </linearGradient>
+  </defs>
+  <title id="heroTitle">Stylized website hero illustration</title>
+  <rect x="30" y="80" width="660" height="380" rx="48" fill="#0f172a" />
+  <circle cx="160" cy="140" r="64" fill="url(#heroGlow)" />
+  <path d="M120 420c80-40 180-90 300-70s200 70 220 96" fill="none" stroke="#4f7dff" stroke-width="18" stroke-linecap="round" />
+  <path d="M150 220h420a20 20 0 0 1 20 20v180a20 20 0 0 1-20 20H150a20 20 0 0 1-20-20V240a20 20 0 0 1 20-20Z" fill="#111827" stroke="#2b3b5a" stroke-width="3" />
+  <rect x="190" y="275" width="110" height="22" rx="10" fill="#1f2937" />
+  <rect x="330" y="275" width="160" height="22" rx="10" fill="#1f2937" />
+  <rect x="190" y="320" width="300" height="18" rx="9" fill="#15203d" />
+  <rect x="190" y="350" width="260" height="18" rx="9" fill="#15203d" />
+  <rect x="190" y="380" width="180" height="18" rx="9" fill="#15203d" />
+  <rect x="220" y="180" width="280" height="98" rx="22" fill="url(#heroGradient)" opacity="0.95" />
+  <circle cx="420" cy="280" r="44" fill="#1c263f" />
+  <circle cx="520" cy="250" r="26" fill="#2ec7c8" />
+  <path d="M400 160l44-20 46 28" fill="none" stroke="#72d3ff" stroke-width="10" stroke-linecap="round" />
+</svg>

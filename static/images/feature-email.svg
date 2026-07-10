@@ -1,0 +1,7 @@
+<svg viewBox="0 0 140 140" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="emailIconTitle">
+  <title id="emailIconTitle">Email feature icon</title>
+  <circle cx="70" cy="70" r="68" fill="#17233f" />
+  <rect x="26" y="40" width="88" height="60" rx="14" fill="#0b1220" stroke="#4f7dff" stroke-width="6" />
+  <path d="M26 48l44 34L114 48" fill="none" stroke="#4f7dff" stroke-width="6" stroke-linecap="round" />
+  <path d="M34 94h72" fill="none" stroke="#6fb6ff" stroke-width="5" stroke-linecap="round" />
+</svg>
