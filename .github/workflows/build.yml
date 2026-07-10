@@ -9,14 +9,18 @@ on:
 jobs:
     build:
         runs-on: ubuntu-latest
+        env:
+          DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+          DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+          IMAGE_TAG: ${{ secrets.DOCKER_USERNAME }}/go-app:${{ github.run_id }}
         steps:
             - uses: actions/checkout@v3
             - name: Build the Docker image
-              run: docker build . --file Dockerfile --tag ${{ vars.DOCKER_USERNAME }}/go-app:${{github.run_id}}
+              run: docker build . --file Dockerfile --tag $IMAGE_TAG
             - name: Push the Docker image to Docker Hub
               run: |
-                echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ vars.DOCKER_USERNAME }}" --password-stdin
-                docker push ${{ vars.DOCKER_USERNAME }}/go-app:${{github.run_id}}
+                echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+                docker push $IMAGE_TAG
  
     update-newtag-in-helm-chart:
       runs-on: ubuntu-latest
