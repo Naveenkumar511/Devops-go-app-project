@@ -5,6 +5,7 @@ on:
       - main
     paths-ignore:
       - helm/**/*
+      - README.md
 
 jobs:
 
