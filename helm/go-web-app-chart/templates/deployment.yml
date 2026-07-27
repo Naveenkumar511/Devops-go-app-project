@@ -18,8 +18,9 @@ spec:
     spec:
       containers:
         - name: go-web-app-container
-          image: naveen65/go-web-app:{{ .Values.image.tag}}
+          #image: naveen65/go-web-app:{{ .Values.image.tag}}
+          image: httpd:latest
           ports:
-            - containerPort: 8080
+            - containerPort: 80
           
 
