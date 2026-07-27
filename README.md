@@ -2,6 +2,11 @@
 
 This is a simple website written in Golang. It uses the `net/http` package to serve HTTP requests.
 
+# Testig
+```bash
+go test ./... -v
+```
+
 ## Running the server
 
 To run the server, execute the following command:
